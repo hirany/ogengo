@@ -1,0 +1,474 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ID
+
+Grammar
+
+Rule 0     S' -> prog
+Rule 1     prog -> sentence
+Rule 2     sentence -> formula
+Rule 3     sentence -> assign
+Rule 4     sentence -> against
+Rule 5     assign -> VAR HA formula
+Rule 6     assign -> VAR NO VAR HA formula
+Rule 7     against -> VAR NI formula WO TASU
+Rule 8     against -> VAR KARA formula WO HIKU
+Rule 9     against -> VAR NO VAR NI formula WO TASU
+Rule 10    against -> VAR NO VAR KARA formula WO HIKU
+Rule 11    formula -> term
+Rule 12    term -> term TASU factor
+Rule 13    term -> term HIKU factor
+Rule 14    term -> factor
+Rule 15    factor -> NUMBER
+Rule 16    factor -> VAR
+Rule 17    factor -> VAR NO VAR
+
+Terminals, with rules where they appear
+
+HA                   : 5 6
+HIKU                 : 8 10 13
+ID                   : 
+KARA                 : 8 10
+NI                   : 7 9
+NO                   : 6 9 10 17
+NUMBER               : 15
+TASU                 : 7 9 12
+VAR                  : 5 6 6 7 8 9 9 10 10 16 17 17
+WO                   : 7 8 9 10
+error                : 
+
+Nonterminals, with rules where they appear
+
+against              : 4
+assign               : 3
+factor               : 12 13 14
+formula              : 2 5 6 7 8 9 10
+prog                 : 0
+sentence             : 1
+term                 : 11 12 13
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . prog
+    (1) prog -> . sentence
+    (2) sentence -> . formula
+    (3) sentence -> . assign
+    (4) sentence -> . against
+    (11) formula -> . term
+    (5) assign -> . VAR HA formula
+    (6) assign -> . VAR NO VAR HA formula
+    (7) against -> . VAR NI formula WO TASU
+    (8) against -> . VAR KARA formula WO HIKU
+    (9) against -> . VAR NO VAR NI formula WO TASU
+    (10) against -> . VAR NO VAR KARA formula WO HIKU
+    (12) term -> . term TASU factor
+    (13) term -> . term HIKU factor
+    (14) term -> . factor
+    (15) factor -> . NUMBER
+    (16) factor -> . VAR
+    (17) factor -> . VAR NO VAR
+
+    VAR             shift and go to state 7
+    NUMBER          shift and go to state 9
+
+    prog                           shift and go to state 1
+    sentence                       shift and go to state 2
+    formula                        shift and go to state 3
+    assign                         shift and go to state 4
+    against                        shift and go to state 5
+    term                           shift and go to state 6
+    factor                         shift and go to state 8
+
+state 1
+
+    (0) S' -> prog .
+
+
+
+state 2
+
+    (1) prog -> sentence .
+
+    $end            reduce using rule 1 (prog -> sentence .)
+
+
+state 3
+
+    (2) sentence -> formula .
+
+    $end            reduce using rule 2 (sentence -> formula .)
+
+
+state 4
+
+    (3) sentence -> assign .
+
+    $end            reduce using rule 3 (sentence -> assign .)
+
+
+state 5
+
+    (4) sentence -> against .
+
+    $end            reduce using rule 4 (sentence -> against .)
+
+
+state 6
+
+    (11) formula -> term .
+    (12) term -> term . TASU factor
+    (13) term -> term . HIKU factor
+
+    $end            reduce using rule 11 (formula -> term .)
+    WO              reduce using rule 11 (formula -> term .)
+    TASU            shift and go to state 10
+    HIKU            shift and go to state 11
+
+
+state 7
+
+    (5) assign -> VAR . HA formula
+    (6) assign -> VAR . NO VAR HA formula
+    (7) against -> VAR . NI formula WO TASU
+    (8) against -> VAR . KARA formula WO HIKU
+    (9) against -> VAR . NO VAR NI formula WO TASU
+    (10) against -> VAR . NO VAR KARA formula WO HIKU
+    (16) factor -> VAR .
+    (17) factor -> VAR . NO VAR
+
+    HA              shift and go to state 12
+    NO              shift and go to state 13
+    NI              shift and go to state 14
+    KARA            shift and go to state 15
+    TASU            reduce using rule 16 (factor -> VAR .)
+    HIKU            reduce using rule 16 (factor -> VAR .)
+    $end            reduce using rule 16 (factor -> VAR .)
+
+
+state 8
+
+    (14) term -> factor .
+
+    TASU            reduce using rule 14 (term -> factor .)
+    HIKU            reduce using rule 14 (term -> factor .)
+    $end            reduce using rule 14 (term -> factor .)
+    WO              reduce using rule 14 (term -> factor .)
+
+
+state 9
+
+    (15) factor -> NUMBER .
+
+    TASU            reduce using rule 15 (factor -> NUMBER .)
+    HIKU            reduce using rule 15 (factor -> NUMBER .)
+    $end            reduce using rule 15 (factor -> NUMBER .)
+    WO              reduce using rule 15 (factor -> NUMBER .)
+
+
+state 10
+
+    (12) term -> term TASU . factor
+    (15) factor -> . NUMBER
+    (16) factor -> . VAR
+    (17) factor -> . VAR NO VAR
+
+    NUMBER          shift and go to state 9
+    VAR             shift and go to state 17
+
+    factor                         shift and go to state 16
+
+state 11
+
+    (13) term -> term HIKU . factor
+    (15) factor -> . NUMBER
+    (16) factor -> . VAR
+    (17) factor -> . VAR NO VAR
+
+    NUMBER          shift and go to state 9
+    VAR             shift and go to state 17
+
+    factor                         shift and go to state 18
+
+state 12
+
+    (5) assign -> VAR HA . formula
+    (11) formula -> . term
+    (12) term -> . term TASU factor
+    (13) term -> . term HIKU factor
+    (14) term -> . factor
+    (15) factor -> . NUMBER
+    (16) factor -> . VAR
+    (17) factor -> . VAR NO VAR
+
+    NUMBER          shift and go to state 9
+    VAR             shift and go to state 17
+
+    formula                        shift and go to state 19
+    term                           shift and go to state 6
+    factor                         shift and go to state 8
+
+state 13
+
+    (6) assign -> VAR NO . VAR HA formula
+    (9) against -> VAR NO . VAR NI formula WO TASU
+    (10) against -> VAR NO . VAR KARA formula WO HIKU
+    (17) factor -> VAR NO . VAR
+
+    VAR             shift and go to state 20
+
+
+state 14
+
+    (7) against -> VAR NI . formula WO TASU
+    (11) formula -> . term
+    (12) term -> . term TASU factor
+    (13) term -> . term HIKU factor
+    (14) term -> . factor
+    (15) factor -> . NUMBER
+    (16) factor -> . VAR
+    (17) factor -> . VAR NO VAR
+
+    NUMBER          shift and go to state 9
+    VAR             shift and go to state 17
+
+    formula                        shift and go to state 21
+    term                           shift and go to state 6
+    factor                         shift and go to state 8
+
+state 15
+
+    (8) against -> VAR KARA . formula WO HIKU
+    (11) formula -> . term
+    (12) term -> . term TASU factor
+    (13) term -> . term HIKU factor
+    (14) term -> . factor
+    (15) factor -> . NUMBER
+    (16) factor -> . VAR
+    (17) factor -> . VAR NO VAR
+
+    NUMBER          shift and go to state 9
+    VAR             shift and go to state 17
+
+    formula                        shift and go to state 22
+    term                           shift and go to state 6
+    factor                         shift and go to state 8
+
+state 16
+
+    (12) term -> term TASU factor .
+
+    TASU            reduce using rule 12 (term -> term TASU factor .)
+    HIKU            reduce using rule 12 (term -> term TASU factor .)
+    $end            reduce using rule 12 (term -> term TASU factor .)
+    WO              reduce using rule 12 (term -> term TASU factor .)
+
+
+state 17
+
+    (16) factor -> VAR .
+    (17) factor -> VAR . NO VAR
+
+    TASU            reduce using rule 16 (factor -> VAR .)
+    HIKU            reduce using rule 16 (factor -> VAR .)
+    $end            reduce using rule 16 (factor -> VAR .)
+    WO              reduce using rule 16 (factor -> VAR .)
+    NO              shift and go to state 23
+
+
+state 18
+
+    (13) term -> term HIKU factor .
+
+    TASU            reduce using rule 13 (term -> term HIKU factor .)
+    HIKU            reduce using rule 13 (term -> term HIKU factor .)
+    $end            reduce using rule 13 (term -> term HIKU factor .)
+    WO              reduce using rule 13 (term -> term HIKU factor .)
+
+
+state 19
+
+    (5) assign -> VAR HA formula .
+
+    $end            reduce using rule 5 (assign -> VAR HA formula .)
+
+
+state 20
+
+    (6) assign -> VAR NO VAR . HA formula
+    (9) against -> VAR NO VAR . NI formula WO TASU
+    (10) against -> VAR NO VAR . KARA formula WO HIKU
+    (17) factor -> VAR NO VAR .
+
+    HA              shift and go to state 24
+    NI              shift and go to state 25
+    KARA            shift and go to state 26
+    TASU            reduce using rule 17 (factor -> VAR NO VAR .)
+    HIKU            reduce using rule 17 (factor -> VAR NO VAR .)
+    $end            reduce using rule 17 (factor -> VAR NO VAR .)
+
+
+state 21
+
+    (7) against -> VAR NI formula . WO TASU
+
+    WO              shift and go to state 27
+
+
+state 22
+
+    (8) against -> VAR KARA formula . WO HIKU
+
+    WO              shift and go to state 28
+
+
+state 23
+
+    (17) factor -> VAR NO . VAR
+
+    VAR             shift and go to state 29
+
+
+state 24
+
+    (6) assign -> VAR NO VAR HA . formula
+    (11) formula -> . term
+    (12) term -> . term TASU factor
+    (13) term -> . term HIKU factor
+    (14) term -> . factor
+    (15) factor -> . NUMBER
+    (16) factor -> . VAR
+    (17) factor -> . VAR NO VAR
+
+    NUMBER          shift and go to state 9
+    VAR             shift and go to state 17
+
+    formula                        shift and go to state 30
+    term                           shift and go to state 6
+    factor                         shift and go to state 8
+
+state 25
+
+    (9) against -> VAR NO VAR NI . formula WO TASU
+    (11) formula -> . term
+    (12) term -> . term TASU factor
+    (13) term -> . term HIKU factor
+    (14) term -> . factor
+    (15) factor -> . NUMBER
+    (16) factor -> . VAR
+    (17) factor -> . VAR NO VAR
+
+    NUMBER          shift and go to state 9
+    VAR             shift and go to state 17
+
+    formula                        shift and go to state 31
+    term                           shift and go to state 6
+    factor                         shift and go to state 8
+
+state 26
+
+    (10) against -> VAR NO VAR KARA . formula WO HIKU
+    (11) formula -> . term
+    (12) term -> . term TASU factor
+    (13) term -> . term HIKU factor
+    (14) term -> . factor
+    (15) factor -> . NUMBER
+    (16) factor -> . VAR
+    (17) factor -> . VAR NO VAR
+
+    NUMBER          shift and go to state 9
+    VAR             shift and go to state 17
+
+    formula                        shift and go to state 32
+    term                           shift and go to state 6
+    factor                         shift and go to state 8
+
+state 27
+
+    (7) against -> VAR NI formula WO . TASU
+
+    TASU            shift and go to state 33
+
+
+state 28
+
+    (8) against -> VAR KARA formula WO . HIKU
+
+    HIKU            shift and go to state 34
+
+
+state 29
+
+    (17) factor -> VAR NO VAR .
+
+    TASU            reduce using rule 17 (factor -> VAR NO VAR .)
+    HIKU            reduce using rule 17 (factor -> VAR NO VAR .)
+    $end            reduce using rule 17 (factor -> VAR NO VAR .)
+    WO              reduce using rule 17 (factor -> VAR NO VAR .)
+
+
+state 30
+
+    (6) assign -> VAR NO VAR HA formula .
+
+    $end            reduce using rule 6 (assign -> VAR NO VAR HA formula .)
+
+
+state 31
+
+    (9) against -> VAR NO VAR NI formula . WO TASU
+
+    WO              shift and go to state 35
+
+
+state 32
+
+    (10) against -> VAR NO VAR KARA formula . WO HIKU
+
+    WO              shift and go to state 36
+
+
+state 33
+
+    (7) against -> VAR NI formula WO TASU .
+
+    $end            reduce using rule 7 (against -> VAR NI formula WO TASU .)
+
+
+state 34
+
+    (8) against -> VAR KARA formula WO HIKU .
+
+    $end            reduce using rule 8 (against -> VAR KARA formula WO HIKU .)
+
+
+state 35
+
+    (9) against -> VAR NO VAR NI formula WO . TASU
+
+    TASU            shift and go to state 37
+
+
+state 36
+
+    (10) against -> VAR NO VAR KARA formula WO . HIKU
+
+    HIKU            shift and go to state 38
+
+
+state 37
+
+    (9) against -> VAR NO VAR NI formula WO TASU .
+
+    $end            reduce using rule 9 (against -> VAR NO VAR NI formula WO TASU .)
+
+
+state 38
+
+    (10) against -> VAR NO VAR KARA formula WO HIKU .
+
+    $end            reduce using rule 10 (against -> VAR NO VAR KARA formula WO HIKU .)
+
